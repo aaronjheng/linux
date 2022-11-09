@@ -1900,6 +1900,8 @@ static int python_start_script(const char *script, int argc, const char **argv,
 		command_line[i] = Py_DecodeLocale(argv[i - 1], NULL);
 	PyImport_AppendInittab(name, PyInit_perf_trace_context);
 #endif
+	Py_SetProgramName("perf");
+
 	Py_Initialize();
 
 #if PY_MAJOR_VERSION < 3
